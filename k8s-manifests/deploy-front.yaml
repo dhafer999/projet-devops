@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: #Dictionary
+  name: front-app
+spec: # Dictionary
+  replicas: 2
+  selector:
+    matchLabels:
+      app: front-app
+  template:
+    metadata: # Dictionary
+      name: front-app
+      labels: # Dictionary
+        app: front-app  # Key value pairs
+    spec:
+      containers: # List
+        - name: frontend
+          image: 002710867275.dkr.ecr.us-east-1.amazonaws.com/front-end:2
+          ports:
+            - containerPort: 80
